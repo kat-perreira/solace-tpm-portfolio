@@ -294,6 +294,30 @@
         letter-spacing: 0.01em;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
+
+      .site-footer {
+        font-size: 13px;
+      }
+
+      .site-footer p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .site-footer a {
+        color: var(--muted);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .site-footer a:hover {
+        color: var(--accent);
+      }
+
+      .site-footer .footer-sep {
+        color: rgba(232, 236, 255, 0.35);
+        margin: 0 0.4em;
+      }
     </style>
   </head>
   <body>
@@ -329,7 +353,7 @@
         <div class="hero-grid">
           <div class="hero-card">
             <div class="kicker">Solace TPM Portfolio</div>
-            <h1><!-- TODO: Project title here --></h1>
+            <h1>Solace Platform API Integration Program</h1>
             <p class="subtle">
             <!-- TODO: Short subtitle (optional) -->
               <span id="hero-subtitle"> </span>
@@ -394,7 +418,7 @@
 
       <section id="risk-register" class="section">
         <h2>Risk register</h2>
-        <p class="embed-note">Tableau Risk Matrix</p>
+        <p class="embed-note">Risk matrix plotting 12 identified risks by likelihood and impact - R01 and R02 in the top-right danger zone are the program's two critical blockers.</p>
         <div class="figure-stack">
           <figure>
             <img
@@ -419,7 +443,6 @@
 
       <section id="dependency-status" class="section">
         <h2>Dependency status</h2>
-        <p class="embed-note">Tableau dependency status chart.</p>
         <figure>
           <img
             class="img"
@@ -427,14 +450,14 @@
             alt="Dependency status chart"
             loading="lazy"
           />
-          <figcaption>Tableau dependency status chart.></figcaption>
+          <figcaption>14 stories grouped by epic and colored by status - red bars indicate active blockers requiring immediate attention.</figcaption>
         </figure>
       </section>
 
       <section id="key-artifacts" class="section">
         <h2>Key artifacts</h2>
         <p class="subtle" style="margin-bottom: 20px">
-        Key artifacts include the Jira board, the SOL-5 ticket detail, and the SOL-9 ticket detail.
+        These three artifacts together show how the program's two critical blockers were structured, tracked, and escalated in Jira
         </p>
         <div class="two-col">
           <figure>
@@ -603,9 +626,12 @@
         </div>
       </section>
 
-      <footer class="section" style="margin-top: 18px">
-        <p class="subtle" style="margin: 0">
-    TODO: add content information here with github, linked in, tableau, jira ect
+      <footer class="section site-footer" role="contentinfo" style="margin-top: 18px">
+        <p class="subtle">
+          <a href="https://github.com/kat-perreira/solace-tpm-portfolio" rel="noopener noreferrer" target="_blank"
+            >GitHub — this project</a>
+          <span class="footer-sep" aria-hidden="true">·</span>
+          <a href="https://www.linkedin.com/in/kat-perreira/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
         </p>
       </footer>
     </main>
