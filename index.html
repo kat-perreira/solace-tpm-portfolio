@@ -15,18 +15,14 @@
         --header-offset: 5.75rem;
       }
 
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
 
-      html {
-        scroll-padding-top: var(--header-offset);
-      }
+      html { scroll-padding-top: var(--header-offset); }
 
       body {
         margin: 0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji",
-          "Segoe UI Emoji";
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
         background: linear-gradient(180deg, #080d1b, var(--bg));
         color: var(--text);
         line-height: 1.5;
@@ -98,9 +94,7 @@
         white-space: nowrap;
       }
 
-      nav a:hover {
-        color: var(--text);
-      }
+      nav a:hover { color: var(--text); }
 
       .section {
         border: 1px solid var(--border);
@@ -120,9 +114,7 @@
         color: var(--text);
       }
 
-      .subtle {
-        color: var(--muted);
-      }
+      .subtle { color: var(--muted); }
 
       .hero-grid {
         display: grid;
@@ -132,16 +124,9 @@
       }
 
       @media (max-width: 900px) {
-        .hero-grid {
-          grid-template-columns: 1fr;
-        }
-        nav {
-          overflow-x: auto;
-          white-space: nowrap;
-        }
-        nav a {
-          margin-left: 10px;
-        }
+        .hero-grid { grid-template-columns: 1fr; }
+        nav { overflow-x: auto; white-space: nowrap; }
+        nav a { margin-left: 10px; }
       }
 
       .hero-card {
@@ -171,9 +156,7 @@
       }
 
       @media (max-width: 560px) {
-        .hero-meta {
-          grid-template-columns: 1fr;
-        }
+        .hero-meta { grid-template-columns: 1fr; }
       }
 
       .meta-item {
@@ -189,16 +172,16 @@
         margin-bottom: 6px;
       }
 
-      .meta-item .value {
-        font-weight: 650;
-      }
+      .meta-item .value { font-weight: 650; }
 
-      figure {
-        margin: 0;
-      }
+      figure { margin: 0; }
 
+      /* Images capped at 500px tall so screenshots don't dominate the scroll */
       .img {
         width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+        object-position: top;
         border: 1px solid var(--border);
         border-radius: 14px;
         background: rgba(0, 0, 0, 0.18);
@@ -211,13 +194,8 @@
         transition: opacity 0.15s ease;
       }
 
-      .img-link:hover {
-        opacity: 0.88;
-      }
-
-      .img-link:hover .img {
-        border-color: var(--accent);
-      }
+      .img-link:hover { opacity: 0.88; }
+      .img-link:hover .img { border-color: var(--accent); }
 
       figcaption {
         color: var(--muted);
@@ -232,9 +210,7 @@
         text-underline-offset: 3px;
       }
 
-      figcaption a:hover {
-        color: var(--text);
-      }
+      figcaption a:hover { color: var(--text); }
 
       .figure-stack {
         display: flex;
@@ -257,55 +233,82 @@
       }
 
       @media (max-width: 900px) {
-        .two-col {
-          grid-template-columns: 1fr;
-        }
+        .two-col { grid-template-columns: 1fr; }
       }
 
-      .retrospective-sub h3 {
-        margin: 0 0 10px 0;
-        font-size: 15px;
+      /* ── Collapsible details blocks ── */
+      details {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-top: 12px;
+        background: rgba(0, 0, 0, 0.14);
+        overflow: hidden;
+      }
+
+      details + details { margin-top: 10px; }
+
+      summary {
+        cursor: pointer;
+        padding: 14px 18px;
+        font-size: 14px;
         font-weight: 650;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        user-select: none;
       }
 
-      .retrospective-sub p {
-        margin: 0;
+      summary::-webkit-details-marker { display: none; }
+
+      summary::after {
+        content: "+";
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--muted);
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
       }
 
-      .retrospective-sub {
-        margin-top: 26px;
+      details[open] summary::after {
+        content: "−";
       }
 
-      .retrospective-sub:first-of-type {
-        margin-top: 18px;
+      summary:hover { background: rgba(255, 255, 255, 0.04); }
+
+      .details-body {
+        padding: 0 18px 18px 18px;
+        border-top: 1px solid var(--border);
       }
 
-      .decision-block {
-        margin-top: 26px;
+      .details-body p {
+        margin: 14px 0 0 0;
+        font-size: 14px;
+        line-height: 1.65;
+        color: var(--text);
       }
 
-      .decision-block:first-of-type {
-        margin-top: 18px;
+      .details-body p + p { margin-top: 12px; }
+
+      .retro-sub {
+        margin-top: 20px;
       }
 
-      .decision-block h3 {
+      .retro-sub h3 {
         margin: 0 0 12px 0;
         font-size: 15px;
         font-weight: 650;
-        line-height: 1.35;
+        color: var(--accent);
       }
 
-      .decision-block p {
+      .retro-sub p {
         margin: 0;
+        font-size: 14px;
+        line-height: 1.65;
       }
 
-      .decision-block p + p {
-        margin-top: 14px;
-      }
-
-      .retrospective-sub p + p {
-        margin-top: 14px;
-      }
+      .retro-sub p + p { margin-top: 12px; }
 
       .portfolio-note {
         max-width: 1100px;
@@ -319,9 +322,7 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
-      .site-footer {
-        font-size: 13px;
-      }
+      .site-footer { font-size: 13px; }
 
       .site-footer p {
         margin: 0;
@@ -334,11 +335,9 @@
         text-underline-offset: 3px;
       }
 
-      .site-footer a:hover {
-        color: var(--accent);
-      }
+      .site-footer a:hover { color: var(--accent); }
 
-      .site-footer .footer-sep {
+      .footer-sep {
         color: rgba(232, 236, 255, 0.35);
         margin: 0 0.4em;
       }
@@ -348,14 +347,13 @@
     <header>
       <div class="topbar">
         <div class="brand">
-          <img class="brand-mark" src="assets/sol-icon.png" alt="Solace Company Logo" width="42" height="42" />
+          <img class="brand-mark" src="assets/sol-icon.png" alt="Solace logo" width="42" height="42" />
           <div class="brand-title">
             <strong>Solace</strong>
             <span>TPM Portfolio</span>
           </div>
         </div>
         <nav aria-label="Page sections">
-          <a href="#hero">Hero</a>
           <a href="#overview">Project overview</a>
           <a href="#program-structure">Program structure</a>
           <a href="#risk-register">Risk register</a>
@@ -381,7 +379,6 @@
               A multi-workstream API integration program spanning Stripe payments, Workday HRIS, and Security &amp; Compliance across five teams. This program is a study in multi-workstream dependency management.
             </p>
           </div>
-
           <div class="hero-meta">
             <div class="meta-item">
               <div class="label">Name</div>
@@ -396,7 +393,7 @@
               <div class="value">Solace <span class="subtle" style="font-weight:400;font-size:12px;">— portfolio project, fictional company</span></div>
             </div>
             <div class="meta-item">
-              <div class="label">Project Timeframe</div>
+              <div class="label">Project timeframe</div>
               <div class="value">April – August 2026</div>
             </div>
           </div>
@@ -412,7 +409,7 @@
 
       <section id="program-structure" class="section">
         <h2>Program structure</h2>
-        <p class="embed-note">Jira Timeline</p>
+        <p class="embed-note">Jira timeline</p>
         <div class="figure-stack">
           <figure>
             <img
@@ -427,7 +424,7 @@
             <img
               class="img"
               src="assets/jira-timeline-expanded.png"
-              alt="Story-level timeline showing SOL-5 blocked dependency chain and sprint progress"
+              alt="Story-level timeline showing SOL-5 blocked dependency chain"
               loading="lazy"
             />
             <figcaption>Story-level view showing SOL-5 blocked dependency chain and the red dependency line connecting it to its blocker</figcaption>
@@ -437,7 +434,7 @@
 
       <section id="risk-register" class="section">
         <h2>Risk register</h2>
-        <p class="embed-note">Tableau Risk Matrix — click any image to open the interactive viz and hover over bubbles for full risk details.</p>
+        <p class="embed-note">Tableau risk matrix — click any image to open the interactive viz and hover over bubbles for full risk details.</p>
         <div class="figure-stack">
           <figure>
             <a
@@ -456,11 +453,7 @@
             </a>
             <figcaption>
               Risk matrix plotting 12 identified risks by likelihood and impact — R01 and R02 in the top-right danger zone are the program's two critical blockers.
-              <a
-                href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/RiskMatrix"
-                target="_blank"
-                rel="noopener noreferrer"
-              >View interactive viz →</a>
+              <a href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/RiskMatrix" target="_blank" rel="noopener noreferrer">View interactive viz →</a>
             </figcaption>
           </figure>
           <figure>
@@ -469,7 +462,7 @@
               href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/RiskMatrix"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Open interactive Tableau risk matrix with tooltip detail"
+              aria-label="Open interactive Tableau risk matrix tooltip detail"
             >
               <img
                 class="img"
@@ -480,11 +473,7 @@
             </a>
             <figcaption>
               Hovering over R01 surfaces the full risk brief — title, score, severity, status, and mitigation strategy.
-              <a
-                href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/RiskMatrix"
-                target="_blank"
-                rel="noopener noreferrer"
-              >View interactive viz →</a>
+              <a href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/RiskMatrix" target="_blank" rel="noopener noreferrer">View interactive viz →</a>
             </figcaption>
           </figure>
         </div>
@@ -492,7 +481,7 @@
 
       <section id="dependency-status" class="section">
         <h2>Dependency status</h2>
-        <p class="embed-note">Tableau Dependency Status — click the image to open the interactive viz and hover over any bar for full ticket context.</p>
+        <p class="embed-note">Tableau dependency status — click the image to open the interactive viz and hover over any bar for full ticket context.</p>
         <figure>
           <a
             class="img-link"
@@ -510,11 +499,7 @@
           </a>
           <figcaption>
             14 stories grouped by epic and colored by status — red bars indicate active blockers requiring immediate attention.
-            <a
-              href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/DependencyStatus"
-              target="_blank"
-              rel="noopener noreferrer"
-            >View interactive viz →</a>
+            <a href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/DependencyStatus" target="_blank" rel="noopener noreferrer">View interactive viz →</a>
           </figcaption>
         </figure>
       </section>
@@ -530,7 +515,7 @@
             <figcaption>Jira board — Sprint 1 active with blocked tickets visible in their own column</figcaption>
           </figure>
           <figure>
-            <img class="img" src="assets/sol-5-ticket.png" alt="SOL-5 ticket detail showing blocked status, escalation path, and blocker link to SOL-15" loading="lazy" />
+            <img class="img" src="assets/sol-5-ticket.png" alt="SOL-5 ticket detail showing blocked status and escalation path" loading="lazy" />
             <figcaption>SOL-5 — OAuth implementation blocked by SOL-15, with named escalation path documented in the ticket</figcaption>
           </figure>
         </div>
@@ -543,149 +528,77 @@
 
       <section id="tpm-decisions" class="section">
         <h2>TPM decisions</h2>
-        <div class="decision-block">
-          <h3>Decision 1 — Structure Security as a cross-cutting epic rather than embedding security tasks in each workstream</h3>
-          <p>
-            <strong>The decision:</strong> Rather than attaching security review tasks to the Stripe and Workday epics
-            respectively, Security &amp; Compliance was established as its own epic (SOL-3) running concurrently across
-            both workstreams.
-          </p>
-          <p>
-            <strong>Why it mattered:</strong> When security work lives inside a feature epic it often gets
-            deprioritized when that epic falls behind. Giving Security its own epic with its own DRI and its own timeline
-            made it impossible to skip or defer without a visible, intentional decision. It also meant SOL-31 and SOL-32
-            could block downstream work explicitly.
-          </p>
-          <p>
-            <strong>The tradeoff:</strong> A separate Security epic adds coordination overhead. The Security team now
-            needs to be pulled into planning for two workstreams instead of one. Worth the cost for this big of an
-            integration but may not be worth the effort for a smaller integration.
-          </p>
-        </div>
-        <div class="decision-block">
-          <h3>Decision 2 — Keep SOL-10 In Progress rather than marking it Blocked when SOL-9 was blocked</h3>
-          <p>
-            <strong>The decision:</strong> SOL-9 (Workday sandbox provisioning) is blocked by the external vendor.
-            SOL-10 (schema mapping) depends on SOL-9 but was kept In Progress rather than cascading to Blocked status.
-          </p>
-          <p>
-            <strong>Why it mattered:</strong> The Integrations team could make meaningful progress on schema mapping
-            using Workday's public API documentation; developers estimated that approximately 60% of the mapping work could
-            be completed before sandbox access was strictly required. Marking SOL-10 Blocked would have been technically
-            accurate but practically wrong — it would have signaled that Eng should stop work. Once all the work that can
-            be completed before the block is completed, the ticket will move to the blocked status.
-          </p>
-          <p>
-            <strong>The tradeoff:</strong> This creates a status inconsistency that can confuse stakeholders reading the
-            board. The mitigation is clear documentation in the SOL-10 description noting how much work can proceed
-            without the blocker and what the trigger is for the status to change.
-          </p>
-        </div>
-        <div class="decision-block">
-          <h3>Decision 3 — Write escalation paths directly into blocked ticket descriptions</h3>
-          <p>
-            <strong>The decision:</strong> Every blocked ticket (SOL-5, SOL-9) has a named escalation path in the Other
-            Information field: who to escalate to, by when, and what the trigger is.
-          </p>
-          <p>
-            <strong>Why it mattered:</strong> Escalation paths are usually tribal knowledge. Writing it into the ticket
-            means the path to unblocking is visible to anyone on the team, not just the TPM. It also creates
-            accountability — a named escalation date is harder to let slip than a vague "we'll escalate if needed".
-          </p>
-          <p>
-            <strong>The tradeoff:</strong> Escalation paths go stale. If the VP Engineering changes or the vendor contact
-            changes, the ticket description needs to be updated. A weekly hygiene pass on blocked tickets is the
-            mitigation.
-          </p>
-        </div>
-        <div class="decision-block">
-          <h3>Decision 4 — Flag the pre-work Discovery epic as a recommendation rather than implementing it</h3>
-          <p>
-            <strong>The decision:</strong> Rather than creating a fourth epic mid-program, the pre-work Discovery epic was
-            proposed as a recommendation — documented in the retro and case study rather than built into the Jira
-            structure.
-          </p>
-          <p>
-            <strong>Why it mattered:</strong> Adding a new epic mid-program without stakeholder alignment creates scope
-            confusion. The right time to propose a Discovery epic was during program planning, not after work had started.
-          </p>
-          <p>
-            <strong>The tradeoff:</strong> This means the parallel tracking happening on SOL-10 is informal rather than
-            structured. In a real program I'd formalize it — giving informal parallel work a ticket and an owner makes it
-            trackable and gives the team credit for the work.
-          </p>
-        </div>
+        <p class="subtle" style="margin-bottom: 16px; font-size: 13px;">Each decision is documented with the reasoning and the tradeoff — click any row to expand.</p>
+
+        <details>
+          <summary>Decision 1 — Structure security as a cross-cutting epic rather than embedding security tasks in each workstream</summary>
+          <div class="details-body">
+            <p><strong>The decision:</strong> Rather than attaching security review tasks to the Stripe and Workday epics respectively, Security &amp; Compliance was established as its own epic (SOL-3) running concurrently across both workstreams.</p>
+            <p><strong>Why it mattered:</strong> When security work lives inside a feature epic it often gets deprioritized when that epic falls behind. Giving Security its own epic with its own DRI and its own timeline made it impossible to skip or defer without a visible, intentional decision. It also meant SOL-31 and SOL-32 could block downstream work explicitly.</p>
+            <p><strong>The tradeoff:</strong> A separate Security epic adds coordination overhead. The Security team now needs to be pulled into planning for two workstreams instead of one. Worth the cost for this size of integration but may not be worth the effort for a smaller one.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Decision 2 — Keep SOL-10 in progress rather than marking it blocked when SOL-9 was blocked</summary>
+          <div class="details-body">
+            <p><strong>The decision:</strong> SOL-9 (Workday sandbox provisioning) is blocked by the external vendor. SOL-10 (schema mapping) depends on SOL-9 but was kept In Progress rather than cascading to Blocked status.</p>
+            <p><strong>Why it mattered:</strong> The Integrations team could make meaningful progress on schema mapping using Workday's public API documentation — developers estimated approximately 60% of the mapping work could be completed before sandbox access was strictly required. Marking SOL-10 Blocked would have been technically accurate but practically wrong — it would have signaled that engineering should stop work.</p>
+            <p><strong>The tradeoff:</strong> This creates a status inconsistency that can confuse stakeholders reading the board. The mitigation is clear documentation in the SOL-10 description noting how much work can proceed without the blocker and what the trigger is for the status to change.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Decision 3 — Write escalation paths directly into blocked ticket descriptions</summary>
+          <div class="details-body">
+            <p><strong>The decision:</strong> Every blocked ticket (SOL-5, SOL-9) has a named escalation path in the Other Information field: who to escalate to, by when, and what the trigger is.</p>
+            <p><strong>Why it mattered:</strong> Escalation paths are usually tribal knowledge. Writing it into the ticket means the path to unblocking is visible to anyone on the team, not just the TPM. It also creates accountability — a named escalation date is harder to let slip than a vague "we'll escalate if needed."</p>
+            <p><strong>The tradeoff:</strong> Escalation paths go stale. If the VP Engineering changes or the vendor contact changes, the ticket description needs to be updated. A weekly hygiene pass on blocked tickets is the mitigation.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Decision 4 — Flag the pre-work discovery epic as a recommendation rather than implementing it</summary>
+          <div class="details-body">
+            <p><strong>The decision:</strong> Rather than creating a fourth epic mid-program, the pre-work Discovery epic was proposed as a recommendation — documented in the retro and case study rather than built into the Jira structure.</p>
+            <p><strong>Why it mattered:</strong> Adding a new epic mid-program without stakeholder alignment creates scope confusion. The right time to propose a Discovery epic was during program planning, not after work had started.</p>
+            <p><strong>The tradeoff:</strong> This means the parallel tracking happening on SOL-10 is informal rather than structured. In a real program I'd formalize it — giving informal parallel work a ticket and an owner makes it trackable and gives the team credit for the work.</p>
+          </div>
+        </details>
       </section>
 
       <section id="tpm-retrospective" class="section">
         <h2>TPM retrospective</h2>
-        <div class="retrospective-sub">
-          <h3>What went well</h3>
-          <p>
-            <strong>Dependency chain mapped before sprint start.</strong> By structuring the Jira project with explicit
-            blocker links before Sprint 1 began, the cascade from two root blockers to five downstream tickets was visible
-            from day one. Stakeholders could see the risk without needing a status meeting to explain it.
-          </p>
-          <p>
-            <strong>Security treated as a first-class workstream.</strong> Bringing Security in as its own epic (SOL-3)
-            rather than attaching security tasks to individual stories meant the team couldn't accidentally start OAuth
-            implementation without a review in place. The cross-cutting structure enforced the right sequencing.
-          </p>
-          <p>
-            <strong>Escalation paths documented at ticket level.</strong> Writing escalation paths directly into blocked
-            ticket descriptions (SOL-5, SOL-9) meant the path to unblocking was never ambiguous. Anyone picking up the
-            ticket mid-sprint knew exactly who to call and by when.
-          </p>
-          <p>
-            <strong>Parallel progress on blocked workstream.</strong> SOL-10 (schema mapping) remained In Progress during
-            the SOL-9 vendor block by using Workday's public API documentation. Keeping the Integrations team productive
-            during a blocker period rather than waiting is a deliberate TPM choice that compressed the critical path.
-          </p>
-        </div>
-        <div class="retrospective-sub">
-          <h3>What I'd do differently</h3>
-          <p>
-            <strong>Propose a Discovery epic at program kickoff.</strong> The Workday vendor blocker (SOL-9) was
-            predictable — vendor sandbox provisioning always takes longer than expected. A pre-work Discovery epic pulling
-            forward schema mapping, adapter interface design, and environment configuration scripts would have given the
-            Integrations team structured work to absorb during the wait rather than relying on informal parallel tracking.
-          </p>
-          <p>
-            <strong>Tie sandbox provisioning to contract terms.</strong> SOL-9 being blocked by Workday PSO with no
-            contractual deadline is a program risk that should have been caught during vendor onboarding. In future
-            programs I'd ensure sandbox access SLAs are written into the vendor statement of work before kickoff.
-          </p>
-          <p>
-            <strong>Add story point estimates earlier.</strong> The current backlog has no story point estimates, which
-            means sprint velocity is unmeasurable and burndown charts are flat. Estimates are imperfect but they force
-            sizing conversations that surface complexity early — particularly useful for the SOAP → REST adapter work in
-            SOL-22 which is likely larger than it appears.
-          </p>
-          <p>
-            <strong>Earlier Legal engagement on PII.</strong> SOL-32 (PII audit) was scheduled to begin May 1, but
-            Legal's involvement in data processing agreements is often the longest tail in compliance work. Starting that
-            conversation in April alongside the security threat model would have reduced the risk of SOL-32 blocking
-            SOL-23 later in the program.
-          </p>
-        </div>
-        <div class="retrospective-sub">
-          <h3>What comes next</h3>
-          <p>
-            <strong>Sprint milestone planning through launch.</strong> The program needs five formal milestones tied to
-            sprint boundaries — Security green light (end of Sprint 3), Stripe integration complete (end of Sprint 5),
-            Workday sandbox live (end of Sprint 4), Workday integration complete (end of Sprint 8), and Launch ready (end
-            of Sprint 10).
-          </p>
-          <p>
-            <strong>Launch readiness checklist.</strong> A launch readiness checklist covering security sign-offs, QA
-            completion, runbook documentation, rollback plan, and monitoring setup should be drafted by Sprint 7 and tracked
-            as a living document.
-          </p>
-          <p>
-            <strong>Post-launch monitoring plan.</strong> Both integrations need observability coverage from day one —
-            Stripe webhook failure rates, payment retry counts, Workday sync lag, and PII access logging.
-          </p>
-        </div>
+        <p class="subtle" style="margin-bottom: 16px; font-size: 13px;">A structured look at what worked, what I'd do differently, and what comes next.</p>
+
+        <details>
+          <summary>What went well</summary>
+          <div class="details-body">
+            <p><strong>Dependency chain mapped before sprint start.</strong> By structuring the Jira project with explicit blocker links before Sprint 1 began, the cascade from two root blockers to five downstream tickets was visible from day one. Stakeholders could see the risk without needing a status meeting to explain it.</p>
+            <p><strong>Security treated as a first-class workstream.</strong> Bringing Security in as its own epic (SOL-3) rather than attaching security tasks to individual stories meant the team couldn't accidentally start OAuth implementation without a review in place. The cross-cutting structure enforced the right sequencing.</p>
+            <p><strong>Escalation paths documented at ticket level.</strong> Writing escalation paths directly into blocked ticket descriptions (SOL-5, SOL-9) meant the path to unblocking was never ambiguous. Anyone picking up the ticket mid-sprint knew exactly who to call and by when.</p>
+            <p><strong>Parallel progress on blocked workstream.</strong> SOL-10 (schema mapping) remained In Progress during the SOL-9 vendor block by using Workday's public API documentation. Keeping the Integrations team productive during a blocker period rather than waiting is a deliberate TPM choice that compressed the critical path.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What I'd do differently</summary>
+          <div class="details-body">
+            <p><strong>Propose a discovery epic at program kickoff.</strong> The Workday vendor blocker (SOL-9) was predictable — vendor sandbox provisioning always takes longer than expected. A pre-work Discovery epic pulling forward schema mapping, adapter interface design, and environment configuration scripts would have given the Integrations team structured work to absorb during the wait rather than relying on informal parallel tracking.</p>
+            <p><strong>Tie sandbox provisioning to contract terms.</strong> SOL-9 being blocked by Workday PSO with no contractual deadline is a program risk that should have been caught during vendor onboarding. In future programs I'd ensure sandbox access SLAs are written into the vendor statement of work before kickoff.</p>
+            <p><strong>Add story point estimates earlier.</strong> The current backlog has no story point estimates, which means sprint velocity is unmeasurable and burndown charts are flat. Estimates are imperfect but they force sizing conversations that surface complexity early — particularly useful for the SOAP → REST adapter work in SOL-22 which is likely larger than it appears.</p>
+            <p><strong>Earlier legal engagement on PII.</strong> SOL-32 (PII audit) was scheduled to begin May 1, but Legal's involvement in data processing agreements is often the longest tail in compliance work. Starting that conversation in April alongside the security threat model would have reduced the risk of SOL-32 blocking SOL-23 later in the program.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What comes next</summary>
+          <div class="details-body">
+            <p><strong>Sprint milestone planning through launch.</strong> The program needs five formal milestones tied to sprint boundaries — Security green light (end of Sprint 3), Stripe integration complete (end of Sprint 5), Workday sandbox live (end of Sprint 4), Workday integration complete (end of Sprint 8), and Launch ready (end of Sprint 10).</p>
+            <p><strong>Launch readiness checklist.</strong> A launch readiness checklist covering security sign-offs, QA completion, runbook documentation, rollback plan, and monitoring setup should be drafted by Sprint 7 and tracked as a living document.</p>
+            <p><strong>Post-launch monitoring plan.</strong> Both integrations need observability coverage from day one — Stripe webhook failure rates, payment retry counts, Workday sync lag, and PII access logging. Defining what "healthy" looks like before launch makes incident response faster and gives stakeholders confidence in the rollout.</p>
+          </div>
+        </details>
       </section>
 
       <footer class="section site-footer" role="contentinfo" style="margin-top: 18px">
