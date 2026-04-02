@@ -61,9 +61,11 @@
         width: 42px;
         height: 42px;
         border-radius: 12px;
-        background: radial-gradient(circle at 20% 20%, #ffffff33, transparent 60%),
-          linear-gradient(135deg, #6cf, #6f7cff);
+        object-fit: contain;
+        display: block;
+        flex-shrink: 0;
         border: 1px solid rgba(255, 255, 255, 0.18);
+        background: rgba(0, 0, 0, 0.12);
       }
 
       .brand-title {
@@ -203,6 +205,12 @@
         margin-top: 8px;
       }
 
+      .figure-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
       .embed-note {
         color: var(--muted);
         font-size: 13px;
@@ -222,13 +230,25 @@
         }
       }
 
+      .portfolio-note {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 12px 18px;
+        font-size: 12px;
+        line-height: 1.45;
+        color: rgba(232, 236, 255, 0.52);
+        text-align: center;
+        letter-spacing: 0.01em;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
     </style>
   </head>
   <body>
     <header>
       <div class="topbar">
         <div class="brand">
-          <div class="brand-mark" aria-hidden="true"></div>
+          <img class="brand-mark" src="assets/sol-icon.png" alt="Solace Company Logo
+          " width="42" height="42" />
           <div class="brand-title">
             <strong>Solace</strong>
             <span>TPM Portfolio</span>
@@ -247,6 +267,10 @@
       </div>
     </header>
 
+    <div class="portfolio-note" role="note">
+      This is a portfolio case study built with fictional data to demonstrate TPM skills and tooling.
+    </div>
+
     <main class="wrap">
       <section id="hero" class="section">
         <div class="hero-grid">
@@ -254,30 +278,31 @@
             <div class="kicker">Solace TPM Portfolio</div>
             <h1><!-- TODO: Project title here --></h1>
             <p class="subtle">
-              <!-- TODO: Short subtitle (optional) -->
+            <!-- TODO: Short subtitle (optional) -->
               <span id="hero-subtitle"> </span>
             </p>
             <p style="margin-top: 14px" class="subtle">
-              Replace placeholders below with your name, role, and project context.
+                A multi-workstream API integration program spanning Stripe payments, Workday HRIS, and Security & Compliance across five teams.
+            </p>
             </p>
           </div>
 
           <div class="hero-meta">
             <div class="meta-item">
-              <div class="label">Your name</div>
-              <div class="value"><!-- TODO: Name --></div>
+              <div class="label">Name</div>
+              <div class="value">Kat Perreira</div>
             </div>
             <div class="meta-item">
-              <div class="label">Your role</div>
-              <div class="value"><!-- TODO: Role (e.g., TPM / Program Manager) --></div>
+              <div class="label">Role</div>
+              <div class="value">TPM, Project Manager</div>
             </div>
             <div class="meta-item">
-              <div class="label">Company / Org</div>
-              <div class="value">Solace</div>
-            </div>
+                <div class="label">Company / Org</div>
+                <div class="value">Solace <span class="badge">Portfolio project — fictional company</span></div>
+              </div>
             <div class="meta-item">
               <div class="label">Project timeframe</div>
-              <div class="value"><!-- TODO: Dates (e.g., Q1 2026) --></div>
+              <div class="value">April – August 2026</div>
             </div>
           </div>
         </div>
@@ -286,23 +311,32 @@
       <section id="overview" class="section">
         <h2>Project overview</h2>
         <p>
-          <!-- TODO: Copy the one paragraph brief from SOL-1 Jira description. -->
-        </p>
+            todo: add overview
       </section>
 
       <section id="program-structure" class="section">
         <h2>Program structure</h2>
-        <p class="embed-note">Embed or reference your Jira timeline screenshot here.</p>
-        <figure>
-          <!-- TODO: Replace src with your screenshot path (e.g., assets/jira-timeline.png) -->
-          <img
-            class="img"
-            src="assets/jira-timeline.png"
-            alt="Jira timeline screenshot"
-            loading="lazy"
-          />
-          <figcaption><!-- TODO: Optional caption --></figcaption>
-        </figure>
+        <p class="embed-note">Jira timeline: collapsed view, then expanded.</p>
+        <div class="figure-stack">
+          <figure>
+            <img
+              class="img"
+              src="assets/jira-timeline-collapsed.png"
+              alt="Program timeline overview"
+              loading="lazy"
+            />
+            <figcaption>Program timeline — three epics across April–August 2026</figcaption>
+          </figure>
+          <figure>
+            <img
+              class="img"
+              src="assets/jira-timeline-expanded.png"
+              alt="Story detail with dependency line"
+              loading="lazy"
+            />
+            <figcaption>Story-level view showing SOL-5 blocked dependency chain</figcaption>
+          </figure>
+        </div>
       </section>
 
       <section id="risk-register" class="section">
@@ -340,8 +374,8 @@
         </p>
         <div class="two-col">
           <figure>
-            <img class="img" src="assets/jira-board.png" alt="Jira board screenshot" loading="lazy" />
-            <figcaption>Jira board (screenshot)</figcaption>
+            <img class="img" src="assets/jira-board-sprint-1.png" alt="Jira board, Sprint 1" loading="lazy" />
+            <figcaption>Jira board — Sprint 1 (screenshot)</figcaption>
           </figure>
           <figure>
             <img class="img" src="assets/sol-5-ticket.png" alt="SOL-5 ticket screenshot" loading="lazy" />
