@@ -12,7 +12,6 @@
         --muted: rgba(232, 236, 255, 0.75);
         --border: rgba(255, 255, 255, 0.14);
         --accent: #7aa2ff;
-        /* Sticky header (~74px) + small buffer so #anchors aren’t hidden under it */
         --header-offset: 5.75rem;
       }
 
@@ -203,6 +202,21 @@
         border: 1px solid var(--border);
         border-radius: 14px;
         background: rgba(0, 0, 0, 0.18);
+        display: block;
+      }
+
+      .img-link {
+        display: block;
+        border-radius: 14px;
+        transition: opacity 0.15s ease;
+      }
+
+      .img-link:hover {
+        opacity: 0.88;
+      }
+
+      .img-link:hover .img {
+        border-color: var(--accent);
       }
 
       figcaption {
@@ -210,6 +224,16 @@
         font-size: 12px;
         margin-top: 12px;
         margin-bottom: 4px;
+      }
+
+      figcaption a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      figcaption a:hover {
+        color: var(--text);
       }
 
       .figure-stack {
@@ -324,8 +348,7 @@
     <header>
       <div class="topbar">
         <div class="brand">
-          <img class="brand-mark" src="assets/sol-icon.png" alt="Solace Company Logo
-          " width="42" height="42" />
+          <img class="brand-mark" src="assets/sol-icon.png" alt="Solace Company Logo" width="42" height="42" />
           <div class="brand-title">
             <strong>Solace</strong>
             <span>TPM Portfolio</span>
@@ -354,13 +377,8 @@
           <div class="hero-card">
             <div class="kicker">Solace TPM Portfolio</div>
             <h1>Solace Platform API Integration Program</h1>
-            <p class="subtle">
-            <!-- TODO: Short subtitle (optional) -->
-              <span id="hero-subtitle"> </span>
-            </p>
             <p style="margin-top: 14px" class="subtle">
-                A multi-workstream API integration program spanning Stripe payments, Workday HRIS, and Security & Compliance across five teams. This program is a study in multi-workstream dependency management. 
-            </p>
+              A multi-workstream API integration program spanning Stripe payments, Workday HRIS, and Security &amp; Compliance across five teams. This program is a study in multi-workstream dependency management.
             </p>
           </div>
 
@@ -374,9 +392,9 @@
               <div class="value">TPM, Project Manager</div>
             </div>
             <div class="meta-item">
-                <div class="label">Company / Org</div>
-                <div class="value">Solace <span class="badge">Portfolio project — fictional company</span></div>
-              </div>
+              <div class="label">Company / Org</div>
+              <div class="value">Solace <span class="subtle" style="font-weight:400;font-size:12px;">— portfolio project, fictional company</span></div>
+            </div>
             <div class="meta-item">
               <div class="label">Project Timeframe</div>
               <div class="value">April – August 2026</div>
@@ -388,7 +406,8 @@
       <section id="overview" class="section">
         <h2>Project overview</h2>
         <p>
-            Solace is a B2B SaaS HR tech platform serving mid-market companies. They needed to connect two critical third-party systems to its core platform: Stripe to handle payroll disbursements and benefits billing, and Workday to sync employee records in real time. Without these integrations, HR administrators were managing data manually across disconnected systems, a process prone to errors and delays at scale. As TPM, I owned cross-team coordination across Platform, Payments, Integrations, Security, and a third-party vendor (Workday PSO). This project highlights how I managed a dependency chain where two root blockers,  an external vendor timeline and an internal security review,  created downstream risk across five tickets simultaneously. The program runs April through August 2026 with a hard compliance-gated launch deadline.
+          Solace is a B2B SaaS HR tech platform serving mid-market companies. They needed to connect two critical third-party systems to its core platform: Stripe to handle payroll disbursements and benefits billing, and Workday to sync employee records in real time. Without these integrations, HR administrators were managing data manually across disconnected systems, a process prone to errors and delays at scale. As TPM, I owned cross-team coordination across Platform, Payments, Integrations, Security, and a third-party vendor (Workday PSO). This project highlights how I managed a dependency chain where two root blockers — an external vendor timeline and an internal security review — created downstream risk across five tickets simultaneously. The program runs April through August 2026 with a hard compliance-gated launch deadline.
+        </p>
       </section>
 
       <section id="program-structure" class="section">
@@ -399,7 +418,7 @@
             <img
               class="img"
               src="assets/jira-timeline-collapsed.png"
-              alt="Program timeline overview"
+              alt="Program timeline overview — three epics across April to August 2026"
               loading="lazy"
             />
             <figcaption>Program timeline — three epics across April–August 2026</figcaption>
@@ -408,81 +427,124 @@
             <img
               class="img"
               src="assets/jira-timeline-expanded.png"
-              alt="Story detail with dependency line"
+              alt="Story-level timeline showing SOL-5 blocked dependency chain and sprint progress"
               loading="lazy"
             />
-            <figcaption>Story-level view showing SOL-5 blocked dependency chain</figcaption>
+            <figcaption>Story-level view showing SOL-5 blocked dependency chain and the red dependency line connecting it to its blocker</figcaption>
           </figure>
         </div>
       </section>
 
       <section id="risk-register" class="section">
         <h2>Risk register</h2>
-        <p class="embed-note">Risk matrix plotting 12 identified risks by likelihood and impact - R01 and R02 in the top-right danger zone are the program's two critical blockers.</p>
+        <p class="embed-note">Tableau Risk Matrix — click any image to open the interactive viz and hover over bubbles for full risk details.</p>
         <div class="figure-stack">
           <figure>
-            <img
-              class="img"
-              src="assets/risk-matrix.png"
-              alt="Risk matrix: risk register visualization"
-              loading="lazy"
-            />
-            <figcaption>Tableau risk matrix.</figcaption>
+            <a
+              class="img-link"
+              href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/RiskMatrix"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open interactive Tableau risk matrix"
+            >
+              <img
+                class="img"
+                src="assets/risk-matrix.png"
+                alt="Risk matrix plotting 12 risks by likelihood and impact, colored by severity"
+                loading="lazy"
+              />
+            </a>
+            <figcaption>
+              Risk matrix plotting 12 identified risks by likelihood and impact — R01 and R02 in the top-right danger zone are the program's two critical blockers.
+              <a
+                href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/RiskMatrix"
+                target="_blank"
+                rel="noopener noreferrer"
+              >View interactive viz →</a>
+            </figcaption>
           </figure>
           <figure>
-            <img
-              class="img"
-              src="assets/risk-matrix-tooltip.png"
-              alt="Risk matrix with tooltip: risk detail for selected point (e.g. R01)"
-              loading="lazy"
-            />
-            <figcaption>Risk detail on hover (tooltip)</figcaption>
+            <a
+              class="img-link"
+              href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/RiskMatrix"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open interactive Tableau risk matrix with tooltip detail"
+            >
+              <img
+                class="img"
+                src="assets/risk-matrix-tooltip.png"
+                alt="Risk matrix with R01 tooltip showing full risk detail including mitigation strategy"
+                loading="lazy"
+              />
+            </a>
+            <figcaption>
+              Hovering over R01 surfaces the full risk brief — title, score, severity, status, and mitigation strategy.
+              <a
+                href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/RiskMatrix"
+                target="_blank"
+                rel="noopener noreferrer"
+              >View interactive viz →</a>
+            </figcaption>
           </figure>
         </div>
       </section>
 
       <section id="dependency-status" class="section">
         <h2>Dependency status</h2>
+        <p class="embed-note">Tableau Dependency Status — click the image to open the interactive viz and hover over any bar for full ticket context.</p>
         <figure>
-          <img
-            class="img"
-            src="assets/dependency-status.png"
-            alt="Dependency status chart"
-            loading="lazy"
-          />
-          <figcaption>14 stories grouped by epic and colored by status - red bars indicate active blockers requiring immediate attention.</figcaption>
+          <a
+            class="img-link"
+            href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/DependencyStatus"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open interactive Tableau dependency status chart"
+          >
+            <img
+              class="img"
+              src="assets/dependency-status.png"
+              alt="Dependency status chart showing 14 stories grouped by epic and colored by status"
+              loading="lazy"
+            />
+          </a>
+          <figcaption>
+            14 stories grouped by epic and colored by status — red bars indicate active blockers requiring immediate attention.
+            <a
+              href="https://public.tableau.com/app/profile/kat.perreira/viz/Solace-Platform-Integration-Risk-Register/DependencyStatus"
+              target="_blank"
+              rel="noopener noreferrer"
+            >View interactive viz →</a>
+          </figcaption>
         </figure>
       </section>
 
       <section id="key-artifacts" class="section">
         <h2>Key artifacts</h2>
         <p class="subtle" style="margin-bottom: 20px">
-        These three artifacts together show how the program's two critical blockers were structured, tracked, and escalated in Jira
+          These three artifacts together show how the program's two critical blockers were structured, tracked, and escalated in Jira.
         </p>
         <div class="two-col">
           <figure>
-            <img class="img" src="assets/jira-board-sprint-1.png" alt="Jira board, Sprint 1" loading="lazy" />
-            <figcaption>Jira board — Sprint 1 detail)</figcaption>
+            <img class="img" src="assets/jira-board-sprint-1.png" alt="Jira board showing Sprint 1 with Blocked, In Progress, Done and To Do columns" loading="lazy" />
+            <figcaption>Jira board — Sprint 1 active with blocked tickets visible in their own column</figcaption>
           </figure>
           <figure>
-            <img class="img" src="assets/sol-5-ticket.png" alt="SOL-5 ticket screenshot" loading="lazy" />
-            <figcaption>SOL-5 ticket detail</figcaption>
+            <img class="img" src="assets/sol-5-ticket.png" alt="SOL-5 ticket detail showing blocked status, escalation path, and blocker link to SOL-15" loading="lazy" />
+            <figcaption>SOL-5 — OAuth implementation blocked by SOL-15, with named escalation path documented in the ticket</figcaption>
           </figure>
         </div>
         <div style="height: 22px"></div>
         <figure>
-          <img class="img" src="assets/sol-9-ticket.png" alt="SOL-9 ticket screenshot" loading="lazy" />
-          <figcaption>SOL-9 ticket detail</figcaption>
+          <img class="img" src="assets/sol-9-ticket.png" alt="SOL-9 ticket detail showing external vendor blocker with status update comments" loading="lazy" />
+          <figcaption>SOL-9 — Workday sandbox access blocked by external vendor (Workday PSO), tracked via ticket comments since Jira does not support external blocker links</figcaption>
         </figure>
       </section>
 
       <section id="tpm-decisions" class="section">
         <h2>TPM decisions</h2>
         <div class="decision-block">
-          <h3>
-            Decision 1 — Structure Security as a cross-cutting epic rather than embedding security tasks in each
-            workstream
-          </h3>
+          <h3>Decision 1 — Structure Security as a cross-cutting epic rather than embedding security tasks in each workstream</h3>
           <p>
             <strong>The decision:</strong> Rather than attaching security review tasks to the Stripe and Workday epics
             respectively, Security &amp; Compliance was established as its own epic (SOL-3) running concurrently across
@@ -628,8 +690,7 @@
 
       <footer class="section site-footer" role="contentinfo" style="margin-top: 18px">
         <p class="subtle">
-          <a href="https://github.com/kat-perreira/solace-tpm-portfolio" rel="noopener noreferrer" target="_blank"
-            >GitHub — this project</a>
+          <a href="https://github.com/kat-perreira/solace-tpm-portfolio" rel="noopener noreferrer" target="_blank">GitHub — this project</a>
           <span class="footer-sep" aria-hidden="true">·</span>
           <a href="https://www.linkedin.com/in/kat-perreira/" rel="noopener noreferrer" target="_blank">LinkedIn</a>
         </p>
