@@ -1,1 +1,390 @@
-<h1 Sample Portfolio</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Solace TPM Portfolio</title>
+    <style>
+      :root {
+        --bg: #0b1020;
+        --card: rgba(255, 255, 255, 0.06);
+        --text: #e8ecff;
+        --muted: rgba(232, 236, 255, 0.75);
+        --border: rgba(255, 255, 255, 0.14);
+        --accent: #7aa2ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        background: linear-gradient(180deg, #080d1b, var(--bg));
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+        background: rgba(11, 16, 32, 0.7);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px 18px;
+      }
+
+      .topbar {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 18px;
+      }
+
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        min-width: 240px;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: radial-gradient(circle at 20% 20%, #ffffff33, transparent 60%),
+          linear-gradient(135deg, #6cf, #6f7cff);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      .brand-title {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .brand-title strong {
+        font-size: 14px;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      .brand-title span {
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 13px;
+        margin-left: 14px;
+        white-space: nowrap;
+      }
+
+      nav a:hover {
+        color: var(--text);
+      }
+
+      .section {
+        border: 1px solid var(--border);
+        background: var(--card);
+        border-radius: 16px;
+        padding: 22px;
+        margin-top: 18px;
+      }
+
+      .section h2 {
+        margin: 0 0 10px 0;
+        font-size: 18px;
+      }
+
+      .section p {
+        margin: 0;
+        color: var(--text);
+      }
+
+      .subtle {
+        color: var(--muted);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 16px;
+        align-items: start;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        nav {
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+        nav a {
+          margin-left: 10px;
+        }
+      }
+
+      .hero-card {
+        border: 1px solid var(--border);
+        background: rgba(0, 0, 0, 0.18);
+        border-radius: 16px;
+        padding: 18px;
+      }
+
+      .hero-card .kicker {
+        color: var(--muted);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.35px;
+      }
+
+      .hero-card h1 {
+        margin: 10px 0 8px 0;
+        font-size: 26px;
+        line-height: 1.2;
+      }
+
+      .hero-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      @media (max-width: 560px) {
+        .hero-meta {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .meta-item {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 12px;
+        background: rgba(0, 0, 0, 0.14);
+      }
+
+      .meta-item .label {
+        color: var(--muted);
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
+
+      .meta-item .value {
+        font-weight: 650;
+      }
+
+      figure {
+        margin: 0;
+      }
+
+      .img {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: rgba(0, 0, 0, 0.18);
+      }
+
+      figcaption {
+        color: var(--muted);
+        font-size: 12px;
+        margin-top: 8px;
+      }
+
+      .embed-note {
+        color: var(--muted);
+        font-size: 13px;
+        margin: 0 0 12px 0;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        align-items: start;
+      }
+
+      @media (max-width: 900px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div class="brand-title">
+            <strong>Solace</strong>
+            <span>TPM Portfolio</span>
+          </div>
+        </div>
+        <nav aria-label="Page sections">
+          <a href="#hero">Hero</a>
+          <a href="#overview">Project overview</a>
+          <a href="#program-structure">Program structure</a>
+          <a href="#risk-register">Risk register</a>
+          <a href="#dependency-status">Dependency status</a>
+          <a href="#key-artifacts">Key artifacts</a>
+          <a href="#tpm-decisions">TPM decisions</a>
+          <a href="#what-next">What I would do next</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section id="hero" class="section">
+        <div class="hero-grid">
+          <div class="hero-card">
+            <div class="kicker">Solace TPM Portfolio</div>
+            <h1><!-- TODO: Project title here --></h1>
+            <p class="subtle">
+              <!-- TODO: Short subtitle (optional) -->
+              <span id="hero-subtitle"> </span>
+            </p>
+            <p style="margin-top: 14px" class="subtle">
+              Replace placeholders below with your name, role, and project context.
+            </p>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-item">
+              <div class="label">Your name</div>
+              <div class="value"><!-- TODO: Name --></div>
+            </div>
+            <div class="meta-item">
+              <div class="label">Your role</div>
+              <div class="value"><!-- TODO: Role (e.g., TPM / Program Manager) --></div>
+            </div>
+            <div class="meta-item">
+              <div class="label">Company / Org</div>
+              <div class="value">Solace</div>
+            </div>
+            <div class="meta-item">
+              <div class="label">Project timeframe</div>
+              <div class="value"><!-- TODO: Dates (e.g., Q1 2026) --></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" class="section">
+        <h2>Project overview</h2>
+        <p>
+          <!-- TODO: Copy the one paragraph brief from SOL-1 Jira description. -->
+        </p>
+      </section>
+
+      <section id="program-structure" class="section">
+        <h2>Program structure</h2>
+        <p class="embed-note">Embed or reference your Jira timeline screenshot here.</p>
+        <figure>
+          <!-- TODO: Replace src with your screenshot path (e.g., assets/jira-timeline.png) -->
+          <img
+            class="img"
+            src="assets/jira-timeline.png"
+            alt="Jira timeline screenshot"
+            loading="lazy"
+          />
+          <figcaption><!-- TODO: Optional caption --></figcaption>
+        </figure>
+      </section>
+
+      <section id="risk-register" class="section">
+        <h2>Risk register</h2>
+        <p class="embed-note">Tableau Risk Matrix (screenshot).</p>
+        <figure>
+          <img
+            class="img"
+            src="assets/risk-matrix.png"
+            alt="Risk matrix: risk register visualization"
+            loading="lazy"
+          />
+          <figcaption><!-- Optional caption --></figcaption>
+        </figure>
+      </section>
+
+      <section id="dependency-status" class="section">
+        <h2>Dependency status</h2>
+        <p class="embed-note">Tableau Dependency Status chart (screenshot).</p>
+        <figure>
+          <img
+            class="img"
+            src="assets/dependency-status.png"
+            alt="Dependency status chart"
+            loading="lazy"
+          />
+          <figcaption><!-- Optional caption --></figcaption>
+        </figure>
+      </section>
+
+      <section id="key-artifacts" class="section">
+        <h2>Key artifacts</h2>
+        <p class="subtle" style="margin-bottom: 14px">
+          Replace the image `src` values with your Jira/Jira ticket screenshots.
+        </p>
+        <div class="two-col">
+          <figure>
+            <img class="img" src="assets/jira-board.png" alt="Jira board screenshot" loading="lazy" />
+            <figcaption>Jira board (screenshot)</figcaption>
+          </figure>
+          <figure>
+            <img class="img" src="assets/sol-5-ticket.png" alt="SOL-5 ticket screenshot" loading="lazy" />
+            <figcaption>SOL-5 ticket (screenshot)</figcaption>
+          </figure>
+        </div>
+        <div style="height: 14px"></div>
+        <figure>
+          <img class="img" src="assets/sol-9-ticket.png" alt="SOL-9 ticket screenshot" loading="lazy" />
+          <figcaption>SOL-9 ticket (screenshot)</figcaption>
+        </figure>
+      </section>
+
+      <section id="tpm-decisions" class="section">
+        <h2>TPM decisions</h2>
+        <p class="subtle" style="margin-bottom: 12px">
+          Write a narrative explaining your key TPM decisions, tradeoffs, and how you coordinated across teams.
+        </p>
+        <p><!-- TODO: Paste your TPM narrative here (multiple paragraphs are fine). --></p>
+      </section>
+
+      <section id="what-next" class="section">
+        <h2>What I would do next</h2>
+        <p class="subtle" style="margin-bottom: 12px">
+          Include the pre-work epic idea and your sprint milestone planning.
+        </p>
+        <div class="two-col">
+          <div>
+            <h3 style="margin: 0 0 10px 0; font-size: 15px">Pre-work epic idea</h3>
+            <p><!-- TODO: Describe the pre-work epic. --></p>
+          </div>
+          <div>
+            <h3 style="margin: 0 0 10px 0; font-size: 15px">Sprint milestone planning</h3>
+            <p><!-- TODO: Outline sprint milestones (e.g., Sprint 1/2/3 goals). --></p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="section" style="margin-top: 18px">
+        <p class="subtle" style="margin: 0">
+          Tip: replace remaining `assets/...` paths with your local screenshots as you add them.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
